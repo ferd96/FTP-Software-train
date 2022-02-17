@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="header"> <!--ghi chú-->
+	    <div class="site-branding-area">
+	        <div class="container">
+	            <div class="row">
+	                <div class="col-sm-6">
+	                    <div class="logo">
+	                        <h1><a href="./"><img th:src="@{/user/img/logo.png}"></a></h1>
+	                    </div>
+	                </div>
+	                
+	                <div class="col-sm-6">
+	                    <div class="shopping-item">
+	                        <a th:href="@{/cart}">
+	                        	Cart - <span class="cart-amunt" 
+	                        				id="headerTotalPrice"
+	                        				></span>
+	                        	<i class="fa fa-shopping-cart"></i> <span class="product-count"
+	                        												id="headerTotalQuantity"	 
+	                        												></span></a>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div> <!-- End site branding area -->
+	    
+	    <div class="mainmenu-area">
+	        <div class="container">
+	            <div class="row">
+	                <div class="navbar-header">
+	                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                        <span class="sr-only">Toggle navigation</span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                    </button>
+						<h1 th:if="${session.currentUser !=null}"> <span th:text="${session.currentUser.username}"></span></h1>
+						<button th:if="${session.currentUser !=null}" > <a th:href="@{/logout}">out</a>   </button>
+						<button th:if="${session.currentUser ==null}" > <a th:href="@{/login}">login</a>   </button>
+					</div>
+	                <div class="navbar-collapse collapse">
+	                </div>
+	            </div>
+	        </div>
+	    </div> <!-- End mainmenu area -->
+</div>
+</html>

@@ -10,11 +10,10 @@ import java.util.List;
 
 @Repository
 public interface ProductsRepo extends JpaRepository<Products, Long> {
-    List<Products> findByIsDeleted(Boolean isDeleted); //Chữ IsDeleted phải viết Hoaaa
+    List<Products> findByIsDeletedAndQuantityGreaterThan(Boolean isDeleted, Integer quantity); //Chữ IsDeleted phải viết Hoa , số lượng lớn hơn 0
     // SELETECT * FROM products where isDeleted= isDeleted;
 
-    @Query(value="SELECT*FROM products Where isDeleted = 1",nativeQuery = true)
+    @Query(value="SELECT*FROM products Where isDeleted = 1 AND  quantity >0",nativeQuery = true)
     List<Products>findAllAvailable();
-
 
 }

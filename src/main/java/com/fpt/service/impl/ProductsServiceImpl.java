@@ -14,6 +14,6 @@ public class ProductsServiceImpl implements ProductsService {
     private ProductsRepo repo ;
     @Override
     public List<Products> findAll() {
-        return repo.findByIsDeleted(false);
+        return repo.findByIsDeletedAndQuantityGreaterThan(false,0);
     }
 }
